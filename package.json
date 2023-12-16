@@ -1,0 +1,22 @@
+{
+  "name": "naturos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "nodemon server.js",
+    "start:prod": "NODE_ENV= production nodemon server.js"
+  },
+  "author": "Rohit",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21",
+    "prettier": "^2.8.6"
+  }
+}
