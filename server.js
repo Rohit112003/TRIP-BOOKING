@@ -8,7 +8,7 @@ try {
   mongoose.connect("mongodb+srv://rohitk79739:XHUN7kpxSGJBV8J2@cluster0.hycefun.mongodb.net/?retryWrites=true&w=majority") 
   console.log('Mongo connected')
 }
-catch(error) {
+catch(error)  {
   console.log(error)
   process.exit()
 }
