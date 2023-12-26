@@ -21,7 +21,7 @@ const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-
 //Import data into database
 const importData = async ()=>{
     try{
-        //the create method can also accept array of objects, it simply creat each document for each object in the array
+        //the create method can also accept array of objects, it simply create each document for each object in the array
         await Tour.create(tours)
         console.log("Data Succefully Loaded");
         process.exit();
