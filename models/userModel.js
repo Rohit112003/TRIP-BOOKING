@@ -30,7 +30,9 @@ const userSchema = new mongoose.Schema({
             }
         },
         message:"Passwords are not the same"
-    }
+    },
+    //this property will always be changed, when someone change the password
+    passwordChangedAt:Date
 });
 //middleware function that we're gonna specify here, so the encryption
 //is then gonna be happende between the moment that we recieve the data and 
@@ -59,6 +61,16 @@ next()
 userSchema.methods.correctPassword = async function(candidatePassword,userPassword){
     return  await bcrypt.compare(candidatePassword,userPassword);
 }
+userSchema.methods.changePasswordAfter = function(JWTTimestamp){
+    if(this.passwordChangedAt){
+        const changedTimeStamp =parseInt( this.passwordChangedAt.getTime()/1000,10 );
+
+        console.log(changedTimeStamp,JWTTimestamp)
+        return JWTTimestamp<changedTimeStamp;
+    }
+    return false;
+}
+
 
 const User = mongoose.model('User', userSchema);
 module.exports = User
