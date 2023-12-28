@@ -7,6 +7,10 @@ router.post('/signup',authController.signup )
 router.post('/login',authController.login )
 
 
+router.post('/forgotPassword',authController.forgotPassword )
+router.patch('/resetPassword/:id',authController.resetPassword )
+
+
 router
 .route('/')
 .get(userController.getAllUsers)
